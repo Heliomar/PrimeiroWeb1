@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+      
+     
+     <h:head>
+         <meta http-equiv="Content=type" content="text/html; charset=UTF-8"/>
+        <title>Gestão de Produtos</title>
+        <style>
+        </style>
+        <script> 
+        </script>
+        <h:form>
+            <h:graphicImage value="/imagens/images.jpg" />
+           <br> </br>
+         <h:commandLink value="Pagina de Cadastro" action="recupera.xhtml"/>
+        </h:form>
+     </h:head>
+    
+    <h:body>
+        <h:form>
+            <h:commandLink value="Ajuda de Tela" action="GestaoProdutos.xhtml?faces-redirect=true">
+                <f:actionListener binding ="#{registroCliqueBotaoListener}"/>
+            </h:commandLink>
+            <br></br>
+            <h:commandLink value="Recuperar Senha" action="GestaoProdutos.xhtml?faces-redirect=true"/>
+          <h:panelGrid>
+              
+            <h:outputLabel value="Nome"/>
+            <h:inputText value="#{gestaoProdutosBean.produto.nome}" binding="#{testeBean.campo}"/>
+            
+            <h:outputLabel value="Fabricante"/>
+            <h:inputText value="#{gestaoProdutosBean.produto.fabricante}"/>
+               
+               <h:outputLabel value="Categoria"/>
+               <h:inputText value="#{gestaoProdutosBean.produto.categoria}"/>
+            
+          </h:panelGrid>
+            <br></br>
+            <h:commandButton value="Cadastrar"  action="#{gestaoProdutosBean.incluir()}"
+                             actionListener="#{gestaoProdutosBean.verificarInclusao(event)}">
+              <f:actionListener binding ="#{registroCliqueBotaoListener}"/>
+            </h:commandButton>
+       </h:form>
+       <h:form>
+            Forma de Pesquisa:
+            <h:inputText value="#{gestaoProdutosBean.nomePesquisa}" 
+                         valueChangeListener="#{gestaoProdutosBean.nomePesquisaAlterado}"
+                         onchange="submit()"/>
+                      
+                  
+            
+        </h:form>
+        <h:form>
+        <ol>
+            <ui:repeat var="item" value="#{gestaoProdutosBean.produtosFiltrados}">
+                <li>
+                    #{item.nome}-#{item.fabricante}- #{item.categoria}
+                    <h:commandButton value="Excluir" action= "#{gestaoProdutosBean.excluir()}" onclick="#{gestaoProdutosBean.refazer()}">
+                           
+                            <f:setPropertyActionListener target="#{gestaoProdutosBean.produtoSelecionado}" value="#{item}"/> 
+                                                        
+                        
+                    </h:commandButton>
+                    
+                </li>
+            </ui:repeat>
+        </ol>
+            
+        </h:form>
+    </h:body>  
+</html>
+

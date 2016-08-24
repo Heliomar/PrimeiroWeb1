@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory name="sessionFactory">
+    <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+    <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+    <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:curso</property>
+    <property name="hibernate.connection.username">Curso</property>
+    <property name="hibernate.connection.password">curso</property>
+    <property name="hibernate.connection.pool_size">5</property>
+    
+    <property name="show_sql">true</property>
+    <property name="hibernate.format_sql">true</property>
+    
+    <mapping class="com.algaworksjsf2.financeiro.model.Pessoa"/>
+    <mapping class="com.algaworksjsf2.financeiro.model.Lancamento"/>
+  </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <h:head>
+        <meta http-equiv="Context-type" content="Text/html  charset=UTF-8"/>
+        <title>Lancamentos</title>
+        <h:outputStylesheet library="css" name="sistema.css"/>
+
+      <link rel="StyleSheet" type="text/css" href="css/sistema.css"/>
+    </h:head>
+    <h:body>
+        <h1>Lancamentos</h1>
+        <h:form id="frm">
+            <h:column>
+                <h:graphicImage value="/imagens/edit.png" usemap="GestaoProdutos.xhtml"/>
+                   
+                </h:column>
+            
+            <h:dataTable var="lancamento" value="#{consultaLancamentoBean.lancamentos}" width="100%"
+                         styleClass="form-grid" headerClass="cabecalho" rowClasses="cor-sim, cor-nao"
+                         columnClasses="tipo, pessoa, descricao, valor, pagamento, situacao, acoes">
+             
+                
+                <h:column>
+            
+            <f:facet name="header">
+              Pessoa 
+            </f:facet>
+                <h:outputText value="#{lancamento.pessoa.nome}"/>
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">
+                    Descrição
+                </f:facet>
+                <h:outputText value="#{lancamento.descricao}"/> 
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">
+                    Valor
+                </f:facet>
+                <h:outputText value="#{lancamento.valor}" styleClass="#{lancamento.tipo.toString().tolowerCase()}}">
+                    <f:convertNumber locale="pt_BR" currencySymbol="R$" type="currency" />
+                </h:outputText>
+                    
+            </h:column>
+            
+                <h:column>
+                    <f:facet name="header">
+                        Vencimento
+                    </f:facet>
+                    <h:outputText value="#{lancamento.dataVencimento}">
+                        <f:convertDateTime pattern="dd/mm/yyyy"/>
+                        
+                    </h:outputText>
+                </h:column>
+            
+                <h:column>
+                    <f:facet name="header">
+                        Pagamento
+                    </f:facet>  
+                    <h:outputText value="#{lancamento.dataPagamento}">
+                    <f:convertDateTime pattern="dd/mm/yyyy"/>
+                    </h:outputText>
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">
+                    Situação
+                </f:facet>
+                <h:outputText value="pago" rendered="#{lancamento.pago}"/>
+                <h:outputText value="Aberto" rendered="#{not lancamento.pago}"/>
+            </h:column>
+                <h:column>
+                    <h:graphicImage value="/imagens/edit.png"/>
+                    <h:graphicImage value="/imagens/delete.png"/>
+                </h:column>
+        </h:dataTable>
+       
+           
+              <!--  <h:commandButton value="Recuperação de Senha" action="index?faces-redirect=true"/><br></br>
+            
+                Nome<br></br>
+                <h:inputText value="#{gestaoProdutosBean.produto.nome}" /><br></br>
+                Senha<br></br>
+                <h:inputSecret value="#{gestaoProdutosBean.produto.categoria}" />
+            <br></br>
+                <h:commandButton value="Incluir" action="#{gestaoProdutosBean.incluir()}" />
+               -->
+            </h:form>
+            
+            
+        
+    </h:body>
+</html>
+

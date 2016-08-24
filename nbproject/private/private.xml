@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Helio/Desktop/PrimeiroProjet/src/java/com/algaworksjsf2/EstoqueBean.java</file>
+            <file>file:/C:/Users/Helio/Desktop/PrimeiroProjet/src/java/TesteHibernate.java</file>
+            <file>file:/C:/Users/Helio/Desktop/PrimeiroProjet/src/java/com/algaworksjsf2/financeiro/util/HibernateUtil.java</file>
+            <file>file:/C:/Users/Helio/Desktop/PrimeiroProjet/web/recupera.xhtml</file>
+            <file>file:/C:/Users/Helio/Desktop/PrimeiroProjet/src/java/com/algaworksjsf2/financeiro/model/Lancamento.java</file>
+            <file>file:/C:/Users/Helio/Desktop/PrimeiroProjet/web/GestaoProdutos.xhtml</file>
+            <file>file:/C:/Users/Helio/Desktop/PrimeiroProjet/src/java/com/algaworksjsf2/financeiro/model/TipoLancamento.java</file>
+            <file>file:/C:/Users/Helio/Desktop/PrimeiroProjet/src/java/com/algaworksjsf2/ItemEstoque.java</file>
+            <file>file:/C:/Users/Helio/Desktop/PrimeiroProjet/src/java/com/algaworksjfs2/converter/SmartDateConverter.java</file>
+            <file>file:/C:/Users/Helio/Desktop/PrimeiroProjet/src/java/com/algaworksjsf/visao/GestaoProdutosBean.java</file>
+            <file>file:/C:/Users/Helio/Desktop/PrimeiroProjet/src/java/com/algaworksjsf/visao/ConsultaLancamentoBean.java</file>
+            <file>file:/C:/Users/Helio/Desktop/PrimeiroProjet/src/java/hibernate.cfg.xml</file>
+            <file>file:/C:/Users/Helio/Desktop/PrimeiroProjet/src/java/com/algaworksjsf/visao/CadastroLancamentoBean.java</file>
+            <file>file:/C:/Users/Helio/Desktop/PrimeiroProjet/web/index.xhtml</file>
+            <file>file:/C:/Users/Helio/Desktop/PrimeiroProjet/src/java/com/algaworksjsf2/financeiro/model/Pessoa.java</file>
+        </group>
+    </open-files>
+</project-private>

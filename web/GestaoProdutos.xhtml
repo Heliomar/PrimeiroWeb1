@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+          
+
+    <h:head>
+        <title>Gestão de produto</title>
+        <style>
+            .campo{
+                
+               background-color:#0f0f0f0f;
+               padding:10px;
+            }
+            .campo:focus{
+                background-color: yellowgreen;
+            }
+            
+        </style>
+        <script> 
+            
+            function validar(){
+                
+                campoEmail = document.getElementById('novoFormularioForm:email')
+         if(campoEmail.value == ''){
+             
+             alert('Informe se e-mail !');
+             return false;
+         }  
+         return true;
+      }
+            
+        </script>
+    <style>
+     body{
+    
+    font-size: 12px;
+    font-family: Arial, Hevetico, sans-serif;
+    margin: 8px;
+}
+a{
+    font-weight: bold;
+    color:#003399;
+}
+h1{
+    background: url(../imagens/tela.png) no-repeat  0px 3px;
+    padding-left: 24px;
+    font-size: 20px;
+    font-family: Arial,Helvetica, sans-serif;
+    font-weight: bold;
+    color: #3e3e3e;
+    letter-spacing: -1px;
+    
+}
+.form-grid{
+    border: 1px solid #666666;
+    border-spacing: 0;
+    border-collapse: collapse; 
+    
+
+}
+.grid td, .grid th{
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    background-color: #666666;
+}
+.grid .cabecalho{
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    background-color: #666666;
+    
+}
+.grid .cor-nao{
+    background-color: #e6e6e6;
+}
+.grid cor-sim{
+    background-color: #dbdbdb;
+}
+.form-grid.label{
+   font-weight: bold;
+    text-align: right;
+    padding: 0px 5px; 
+}
+.form-grid.campo{
+    padding-right: 5px;
+  }
+  .form-messages{
+      padding-left: 20px;
+  }
+  .form-messages .error{
+      
+      color: #e81f1f;
+  }
+  ul.messages .info{
+      color: #694c4c
+  } 
+        </style>
+   
+       
+    </h:head>
+   
+    <h:body>
+         <h:head> 
+        <!--<h:outputStylesheet library="css"  name="sistema.css"/>  -->
+         </h:head>
+        <h:form id="novoFormularioForm">
+            <h:inputText value="Seu e-mail aqui" size="40"
+                         maxlength="30" title="Informe seu E-mail aqui" 
+                         onfocus="this.value = '' " id="email" style="font-size: 19px" styleClass=" campo"/>
+            
+            <br></br>
+        <h1>Voce vai direcionar para cadastrar produto</h1>
+    ajuda pelo telefone.....!
+        
+    <br></br>    
+    <h:commandLink value="Cadastro de Poduto" action="index?faces-redirect=true"/>
+    <br></br>
+    <h:commandButton value="Assinar" onclick="return validar()" id="assinarBotao" />
+        </h:form>
+        <br></br>
+        
+        <h:form id="frm">
+            <h1>Novo Lancamento</h1>
+            <h:button value="Novo" outcome="index.xhtml"/>
+            
+            <h:button value="Consulta" outcome="recupera.xhtml"/>
+            
+            <h:messages showDetail="false" showSummary="true"
+                        errorClass="form-grid.label"  errorStyle="error"  infoStyle="label"
+                        fatalStyle="info"/>
+           
+           <!--errorClass="error"-->
+           <h:panelGrid columns="2" styleClass="form-grid" columnClasses="label , campo">
+
+                <h:outputLabel value="Tipo"/>
+                <h:selectOneRadio>
+                <f:selectItem itemLabel="Receita"/> 
+                 <f:selectItem itemLabel="despesa"/>
+                </h:selectOneRadio>
+                
+                <h:outputLabel value="Pessoa"/>
+                <h:selectOneMenu>
+                    <f:selectItem itemValue="Restaurante Beira de Esquina"/>
+                </h:selectOneMenu>
+                
+                <h:outputLabel value="Descrição"/>
+                <h:inputText size="60" required="true">
+                     <h:message for="form-message" errorStyle="grid"/>
+                    <f:validateLength minimum="5"/>    
+                 </h:inputText>
+                
+                <h:outputLabel value="Valor"/>
+                <h:inputText size="12" required="true">
+                    <f:validateLength minimum="1" maximum="999"/>
+                    
+                    
+                </h:inputText>
+                
+                <h:outputLabel value="Data de Vencimento"/>
+                <h:inputText size="12" required="true" />            
+                
+                <h:outputLabel/> 
+                
+                <h:panelGroup>                    
+                    <h:selectBooleanCheckbox/>
+                    <h:outputLabel value="Conta pago"/>
+                </h:panelGroup> 
+                
+                <h:outputLabel value="Data de Pagamento" />
+                <h:inputText size="12" required="true"/>
+                <h:outputLabel/>
+                <h:commandButton value="cadastrar" action="#{cadastroLancamentoBean.cadastrar()}" />
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+
